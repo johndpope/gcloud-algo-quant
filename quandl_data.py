@@ -17,6 +17,7 @@ SP100 = ['AA', 'AAPL', 'ABT', 'AEP', 'AMGN', 'AMZN', 'AVP', 'AXP',
         'VZ', 'WAG', 'WFC', 'WMB', 'WMT', 'WY', 'XOM', 'XRX']
 
 
-data = quandl.get_table('WIKI/PRICES', ticker=SP100, date={'gte': '2000-01-01'}, paginate=True)
-data.to_csv('data.csv')
-print(data)
+def get_data_from_quandl(file='data.csv'):
+        data = quandl.get_table('WIKI/PRICES', ticker=SP100, date={'gte': '2000-01-01'}, paginate=True)
+        data.to_csv(file)
+        return data
